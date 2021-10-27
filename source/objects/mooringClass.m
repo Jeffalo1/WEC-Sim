@@ -17,8 +17,15 @@
 % limitations under the License.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 classdef mooringClass<handle
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % The ``mooringClass`` creates a ``mooring`` object saved to the MATLAB
+    % workspace. The ``mooringClass`` includes properties and methods used
+    % to define cable connections relative to other bodies.
+    % It is suggested that the ``mooringClass`` be used for connections between
+    % bodies and the global reference frame.
+    % 
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
     % This class contains mooring parameters and settings
     properties (SetAccess = 'public', GetAccess = 'public')%input file 
         name                    = 'NOT DEFINED'                                 % (`string`) Name of the mooring. Default = ``'NOT DEFINED'``
@@ -39,7 +46,6 @@ classdef mooringClass<handle
         loc                     = []                                            % (`float 1 x 6`) Initial 6DOF location. Default = ``[0 0 0 0 0 0]``
         mooringNum              = []                                            % (`integer`) Mooring number. Default = ``'NOT DEFINED'``
         moorDyn                 = 0                                             % (`integer`) Flag to indicate a MoorDyn block, 0 or 1. Default = ``0``
-        moorDynInputRaw         = []                                            % (`string`) MoorDyn input file, each line read as a string into a cell array. Default = ``'NOT DEFINED'``
     end
 
     methods (Access = 'public')                                        
@@ -101,12 +107,7 @@ classdef mooringClass<handle
             obj.initDisp.initAngularDispAngle = netAngle;
             
         end
-
-        function obj = moorDynInput(obj)
-            % Method to read MoorDyn input file
-            obj.moorDynInputRaw = textread('./mooring/lines.txt', '%s', 'delimiter', '\n');
-        end
-
+        
         function listInfo(obj)
             % Method to list mooring info
             fprintf('\n\t***** Mooring Name: %s *****\n',obj.name)
