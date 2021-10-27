@@ -24,7 +24,8 @@ WEC-Sim repository. The applications are summarized below.
 Body-to-Body Interactions
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Example using `Body-to-Body (B2B) <http://wec-sim.github.io/WEC-Sim/master/man/advanced_features.html#body-to-body-interactions>`_ to run WEC-Sim for the `RM3 <http://wec-sim.github.io/WEC-Sim/master/man/tutorials.html#two-body-point-absorber-rm3>`_ 
+Example using `Body-to-Body (B2B) <http://wec-sim.github.io/WEC-Sim/advanced_features.html#body-to-body-interacti 
+ons>`_ to run WEC-Sim for the `RM3 <http://wec-sim.github.io/WEC-Sim/tutorials.html#two-body-point-absorber-rm3>`_ 
 geometry. The scripts run and plot the RM3 model with B2B on/off and with 
 Regular/RegularCIC. Execute the `runB2B.m` script to run this case. 
 
