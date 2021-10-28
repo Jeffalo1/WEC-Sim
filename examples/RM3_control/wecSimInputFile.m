@@ -80,3 +80,4 @@ pto(1) = ptoClass('PTO1');                      % Initialize PTO Class for PTO1
 pto(1).k = 0;                                   % PTO Stiffness [N/m]
 pto(1).c = 1200000;                             % PTO Damping [N/(m/s)]
 pto(1).loc = [0 0 0];                           % PTO Location [m]
+
