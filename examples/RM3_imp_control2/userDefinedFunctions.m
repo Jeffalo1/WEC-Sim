@@ -11,13 +11,13 @@ end
 output.plotResponse(1,3);
 
 %Plot heave response for body 2
-output.plotResponse(2,3);
+%output.plotResponse(2,3);
 
 %Plot heave forces for body 1
 output.plotForces(1,3);
 
 %Plot heave forces for body 2
-output.plotForces(2,3);
+%output.plotForces(2,3);
 
 %Save waves and response as video
 % output.plotWaves(simu,body,waves,...
@@ -26,27 +26,37 @@ output.plotForces(2,3);
 
 %% Calculate and Plot Power 
 time =  output.ptos.time;
+time2 = output.bodies.time;
 ii = find(time==25);
-time = time(ii:end);
+ii2 = find(time==200);
+jj = find(time2==25);
+jj2 = find(time2==200);
+time = time(ii:ii2);
+time2 = time2(jj:jj2);
 % force = -output.ptos.forceActuation(ii:end,3);
 % vel = output.ptos.velocity(ii:end,3);
 % power = force.*vel;
-power = output.ptos.powerInternalMechanics(ii:end,3);
-eff = 0.7;
-for i = 1:length(power)
-    if power(i)>= 0
-        power_eff(i) = power(i)*eff;
-    else
-        power_eff(i) = power(i)/eff;
-    end
-end
+power = output.ptos.powerInternalMechanics(ii:ii2,3);
+power_upper = (output.bodies.forceExcitation(jj:jj2,3)).^2/(8*body.hydroForce.fDamping(3,3));
+
+power_average = mean(power);
+power_upper_average = mean(power_upper);
+
 figure
-plot(time,power,time,power_eff)
+plot(time,power)
+hold on
+yline(power_average,'-r')
+hold on
+yline(power_upper_average,'-g')
+%plot(time2,power_upper)
 xlim([25 inf])
 xlabel('Time (s)')
 ylabel('Power (W)')
 title(['body' num2str(1) ' (' output.bodies(1).name ') Power'])
-legend('power','power w/eff')
+legend('power', 'average power','max average power')
+
+
+
 
 
 %% Calculate Evaluation Criteria (EC)
@@ -57,9 +67,10 @@ f_98 = prctile(abs(pto_force),98);
 f_max = 60;
 z_98 = prctile(abs(pto_displacement),98);
 z_max = 0.08;
-power_average = mean(power_eff);
-power_abs_average = mean(abs(power_eff));
-P98 = prctile(abs(power_eff),98);
 
+power_abs_average = mean(abs(power));
+P98 = prctile(abs(power),98);
+
+maxPower = max(power);
 EC = power_average/(2 + f_98/f_max + z_98/z_max - power_abs_average/P98);
 

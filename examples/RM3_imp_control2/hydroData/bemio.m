@@ -1,6 +1,6 @@
 hydro = struct();
 
-hydro = Read_WAMIT(hydro,'rm3.out',[]);
+hydro = Read_AQWA(hydro,'ANALYSIS.AH1','ANALYSIS.LIS');
 hydro = Radiation_IRF(hydro,60,[],[],[],[]);
 hydro = Radiation_IRF_SS(hydro,[],[]);
 hydro = Excitation_IRF(hydro,157,[],[],[],[]);
