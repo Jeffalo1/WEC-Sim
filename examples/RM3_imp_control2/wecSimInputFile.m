@@ -15,8 +15,8 @@ simu.dt = 0.1; 							% Simulation time-step [s]
 
 % Regular Waves  
 waves = waveClass('regular');           % Initialize Wave Class and Specify Type                                 
-waves.H = 2.5;                          % Wave Height [m]
-waves.T = 8;                            % Wave Period [s]
+waves.H = 1;                          % Wave Height [m]
+waves.T = 6;                            % Wave Period [s]
 
 % % Regular Waves with CIC
 % waves = waveClass('regularCIC');           % Initialize Wave Class and Specify Type                                 
@@ -81,7 +81,7 @@ constraint(1).loc = [0 0 0];                    % Constraint Location [m]
 
 % Translational PTO
 pto(1) = ptoClass('PTO1');                      % Initialize PTO Class for PTO1
-pto(1).k = 2.3531e+06;                                   % PTO Stiffness [N/m]
-pto(1).c = 6.0770e+05;                             % PTO Damping [N/(m/s)]
+pto(1).k = 2.0049e+06;                                   % PTO Stiffness [N/m]
+pto(1).c = 7.3292e+05;                             % PTO Damping [N/(m/s)]
 pto(1).loc = [0 0 0];                           % PTO Location [m]
 

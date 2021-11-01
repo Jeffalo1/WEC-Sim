@@ -55,9 +55,7 @@ ylabel('Power (W)')
 title(['body' num2str(1) ' (' output.bodies(1).name ') Power'])
 legend('power', 'average power','max average power')
 
-
-
-
+percent_of_max = power_average/power_upper_average
 
 %% Calculate Evaluation Criteria (EC)
 pto_force = output.ptos.forceInternalMechanics(ii:end,3);
