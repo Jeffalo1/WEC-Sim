@@ -182,7 +182,7 @@ classdef responseClass<handle
             end
             % PTOs
             if isstruct(ptosOutput)
-                signals = {'position','velocity','acceleration','forceTotal','forceActuation','forceConstraint','forceInternalMechanics','powerInternalMechanics'};
+                signals = {'position','velocity','acceleration','forceTotal','forceActuation','forceConstraint','forceInternalMechanics','powerInternalMechanics','inputPower'};
                 for ii = 1:length(ptosOutput)
                     obj.ptos(ii).name = ptosOutput(ii).name;
                     obj.ptos(ii).time = ptosOutput(ii).time;

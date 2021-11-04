@@ -27,10 +27,10 @@ output.plotForces(1,3);
 %% Calculate and Plot Power 
 time =  output.ptos.time;
 time2 = output.bodies.time;
-ii = find(time==25);
-ii2 = find(time==200);
-jj = find(time2==25);
-jj2 = find(time2==200);
+ii = find(time==125);
+ii2 = find(time==225);
+jj = find(time2==125);
+jj2 = find(time2==225);
 time = time(ii:ii2);
 time2 = time2(jj:jj2);
 % force = -output.ptos.forceActuation(ii:end,3);
@@ -56,6 +56,12 @@ title(['body' num2str(1) ' (' output.bodies(1).name ') Power'])
 legend('power', 'average power','max average power')
 
 percent_of_max = power_average/power_upper_average
+
+powerin = output.ptos.inputPower(ii:ii2,3);
+
+figure
+plot(time,powerin)
+
 
 %% Calculate Evaluation Criteria (EC)
 pto_force = output.ptos.forceInternalMechanics(ii:end,3);
