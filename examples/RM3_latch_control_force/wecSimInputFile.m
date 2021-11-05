@@ -14,9 +14,10 @@ simu.dt = 0.01; 							% Simulation time-step [s]
 % waves = waveClass('noWaveCIC');       % Initialize Wave Class and Specify Type  
 
 % Regular Waves  
-waves = waveClass('regular');           % Initialize Wave Class and Specify Type                                 
+waves = waveClass('irregular');           % Initialize Wave Class and Specify Type                                 
 waves.H = 2;                          % Wave Height [m]
 waves.T = 9;                            % Wave Period [s]
+waves.spectrumType = 'JS'; 
 
 % % Regular Waves with CIC
 % waves = waveClass('regularCIC');           % Initialize Wave Class and Specify Type                                 
