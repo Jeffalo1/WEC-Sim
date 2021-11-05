@@ -49,7 +49,7 @@ yline(power_average,'-r')
 hold on
 yline(power_upper_average,'-g')
 %plot(time2,power_upper)
-xlim([25 inf])
+xlim([125 inf])
 xlabel('Time (s)')
 ylabel('Power (W)')
 title(['body' num2str(1) ' (' output.bodies(1).name ') Power'])
@@ -57,7 +57,7 @@ legend('power', 'average power','max average power')
 
 percent_of_max = power_average/power_upper_average
 
-powerin = output.ptos.inputPower(ii:ii2,3);
+powerin = pto1_out1.signals.values(ii:ii2,3);
 
 figure
 plot(time,powerin)
