@@ -37,7 +37,7 @@ time2 = time2(jj:jj2);
 % vel = output.ptos.velocity(ii:end,3);
 % power = force.*vel;
 power = output.ptos.powerInternalMechanics(ii:ii2,3);
-power_upper = (1/4)*(body.hydroForce.fExt.re(3)+body.hydroForce.fExt.im(3)).^2/(body.hydroForce.fDamping(3,3)+pto.c);
+power_upper = (body.hydroForce.fExt.re(3))^2/(8*body.hydroForce.fDamping(3,3));
 
 power_average = mean(power);
 power_upper_average = mean(power_upper);

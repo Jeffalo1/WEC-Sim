@@ -1,6 +1,6 @@
 %% Simulation Data
 simu = simulationClass();               % Initialize Simulation Class
-simu.simMechanicsFile = 'RM3_control_imp.slx';      % Specify Simulink Model File
+simu.simMechanicsFile = 'RM3_control.slx';      % Specify Simulink Model File
 simu.mode = 'normal';                   % Specify Simulation Mode ('normal','accelerator','rapid-accelerator')
 simu.explorer = 'on';                   % Turn SimMechanics Explorer (on/off)
 simu.startTime = 0;                     % Simulation Start Time [s]
@@ -81,7 +81,7 @@ constraint(1).loc = [0 0 0];                    % Constraint Location [m]
 
 % Translational PTO
 pto(1) = ptoClass('PTO1');                      % Initialize PTO Class for PTO1
-pto(1).k = 0;                                   % PTO Stiffness [N/m]
-pto(1).c = 1.9502e6;                             % PTO Damping [N/(m/s)]
+pto(1).k = 1.4554e+06;                                   % PTO Stiffness [N/m]
+pto(1).c = 6.077e+05;                             % PTO Damping [N/(m/s)]
 pto(1).loc = [0 0 0];                           % PTO Location [m]
 

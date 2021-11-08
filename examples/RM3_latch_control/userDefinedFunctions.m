@@ -55,17 +55,17 @@ time2 = time2(jj:jj2);
 % vel = output.ptos.velocity(ii:end,3);
 % power = force.*vel;
 power = output.ptos.powerInternalMechanics(ii:ii2,3);
-power_upper = (output.bodies.forceExcitation(jj:jj2,3)).^2/(8*body.hydroForce.fDamping(3,3));
+%power_upper = (body.hydroForce.fExt.re(3)).^2/(8*body.hydroForce.fDamping(3,3));
 
 power_average = mean(power);
-power_upper_average = mean(power_upper)
+%power_upper_average = mean(power_upper)
 
 figure
 plot(time,power)
 hold on
 yline(power_average,'-r')
 hold on
-yline(power_upper_average,'-g')
+%yline(power_upper_average,'-g')
 %plot(time2,power_upper)
 xlim([25 inf])
 xlabel('Time (s)')
@@ -74,7 +74,7 @@ title(['body' num2str(1) ' (' output.bodies(1).name ') Power', ' -- Latching Pow
 legend('power', 'average power','max average power')
 
 percent_of_max = power_average/power_upper_average
-
+%{
 %% Calculate Evaluation Criteria (EC)
 pto_force = output.ptos.forceInternalMechanics(ii:end,3);
 pto_displacement = output.ptos.position(ii:end,3);
