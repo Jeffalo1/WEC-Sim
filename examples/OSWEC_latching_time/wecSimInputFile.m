@@ -7,7 +7,7 @@ simu.startTime = 0;                     % Simulation Start Time [s]
 simu.rampTime = 100;                    % Wave Ramp Time [s]
 simu.endTime = 400;                     % Simulation End Time [s]        
 simu.solver = 'ode4';                   % simu.solver = 'ode4' for fixed step & simu.solver = 'ode45' for variable step 
-simu.dt = 0.1;                          % Simulation Time-Step [s]
+simu.dt = 0.01;                         % Simulation Time-Step [s]
 simu.CITime = 30;                       % Specify CI Time [s]
 
 %% Wave Information
@@ -17,7 +17,7 @@ simu.CITime = 30;                       % Specify CI Time [s]
 % % Regular Waves 
 waves = waveClass('regular');           % Initialize Wave Class and Specify Type                                 
 waves.H = 2.5;                          % Wave Height [m]
-waves.T = 8;                            % Wave Period [s]
+waves.T = 15;                           % Wave Period [s]
 
 % Irregular Waves using PM Spectrum with Directionality 
 %waves = waveClass('irregular');         % Initialize Wave Class and Specify Type
