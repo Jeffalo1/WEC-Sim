@@ -7,7 +7,7 @@ simu.startTime = 0;                     % Simulation Start Time [s]
 simu.rampTime = 100;                    % Wave Ramp Time [s]
 simu.endTime = 400;                     % Simulation End Time [s]        
 simu.solver = 'ode4';                   % simu.solver = 'ode4' for fixed step & simu.solver = 'ode45' for variable step 
-simu.dt = 0.1;                          % Simulation Time-Step [s]
+simu.dt = 0.01;                          % Simulation Time-Step [s]
 simu.CITime = 30;                       % Specify CI Time [s]
 
 %% Wave Information
@@ -15,10 +15,10 @@ simu.CITime = 30;                       % Specify CI Time [s]
 % waves = waveClass('noWaveCIC');       % Initialize Wave Class and Specify Type  
 
 % % Regular Waves 
-% waves = waveClass('regular');           % Initialize Wave Class and Specify Type                                 
-% waves.H = 2.5;                          % Wave Height [m]
-% waves.T = 8;                            % Wave Period [s]
-
+ waves = waveClass('regular');           % Initialize Wave Class and Specify Type                                 
+ waves.H = 2.5;                          % Wave Height [m]
+ waves.T = 15;                            % Wave Period [s]
+%{
 % Irregular Waves using PM Spectrum with Directionality 
 waves = waveClass('irregular');         % Initialize Wave Class and Specify Type
 waves.H = 2.5;                          % Significant Wave Height [m]
@@ -26,7 +26,7 @@ waves.T = 8;                            % Peak Period [s]
 waves.spectrumType = 'PM';              % Specify Spectrum Type
 waves.waveDir = [0,30,90];              % Wave Directionality [deg]
 waves.waveSpread = [0.1,0.2,0.7];       % Wave Directional Spreading [%}
-
+%}
 % % Irregular Waves with imported spectrum
 % waves = waveClass('spectrumImport');        % Create the Wave Variable and Specify Type
 % waves.spectrumDataFile = 'spectrumData.mat';  %Name of User-Defined Spectrum File [:,2] = [f, Sf]
@@ -56,5 +56,5 @@ constraint(1).loc = [0 0 -10];                  % Constraint Location [m]
 % Rotational PTO
 pto(1) = ptoClass('PTO1');                      % Initialize ptoClass for PTO1
 pto(1).k = 0;                                   % PTO Stiffness Coeff [Nm/rad]
-pto(1).c = 12000;                               % PTO Damping Coeff [Nsm/rad]
+pto(1).c = 120;                               % PTO Damping Coeff [Nsm/rad]
 pto(1).loc = [0 0 -8.9];                        % PTO Location [m]

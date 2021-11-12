@@ -58,3 +58,16 @@ pto(1) = ptoClass('PTO1');                      % Initialize ptoClass for PTO1
 pto(1).k = 0;                                   % PTO Stiffness Coeff [Nm/rad]
 pto(1).c = 12000;                               % PTO Damping Coeff [Nsm/rad]
 pto(1).loc = [0 0 -8.9];                        % PTO Location [m]
+
+
+% End Stop specification
+pto(1).hardStops.upperLimitSpecify = 'on'; % enable upper limit
+pto(1).hardStops.lowerLimitSpecify = 'on'; % enable lower limit
+pto(1).hardStops.upperLimitBound = 30; % upper limit at +0.8 m
+pto(1).hardStops.lowerLimitBound = -30; % lower limit at -0.8 m 
+pto(1).hardStops.upperLimitStiffness = 1e8; % upper limit at +0.8 m
+pto(1).hardStops.lowerLimitStiffness = 1e8; % lower limit at -0.8 m 
+pto(1).hardStops.upperLimitDamping = 0; % upper limit at +0.8 m
+pto(1).hardStops.lowerLimitDamping = 0; % lower limit at -0.8 m 
+pto(1).hardStops.upperLimitTransitionRegion = 0.5; % upper limit at +0.8 m
+pto(1).hardStops.lowerLimitTransitionRegion = 0.5; % lower limit at -0.8 m 

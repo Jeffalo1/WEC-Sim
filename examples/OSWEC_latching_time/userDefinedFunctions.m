@@ -49,7 +49,7 @@ time2 = time2(jj:jj2);
 % vel = output.ptos.velocity(ii:end,3);
 % power = force.*vel;
 power = output.ptos.powerInternalMechanics(ii:ii2,5);
-no_latch_power = 2.3012e+03;
+no_latch_power = 336.2231;
 %power_upper = (body.hydroForce.fExt.re(3)).^2/(8*body.hydroForce.fDamping(3,3));
 
 power_average = mean(power)
