@@ -40,9 +40,9 @@ title('Latching Velocity')
 time =  output.ptos.time;
 time2 = output.bodies(1).time;
 ii = find(time==50);
-ii2 = find(time==150);
+ii2 = find(time==350);
 jj = find(time2==50);
-jj2 = find(time2==150);
+jj2 = find(time2==350);
 time = time(ii:ii2);
 time2 = time2(jj:jj2);
 % force = -output.ptos.forceActuation(ii:end,3);
