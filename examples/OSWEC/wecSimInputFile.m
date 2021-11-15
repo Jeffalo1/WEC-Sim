@@ -17,7 +17,7 @@ simu.CITime = 30;                       % Specify CI Time [s]
 % % Regular Waves 
  waves = waveClass('regular');           % Initialize Wave Class and Specify Type                                 
  waves.H = 2.5;                          % Wave Height [m]
- waves.T = 15;                            % Wave Period [s]
+ waves.T = 8;                            % Wave Period [s]
 %{
 % Irregular Waves using PM Spectrum with Directionality 
 waves = waveClass('irregular');         % Initialize Wave Class and Specify Type
