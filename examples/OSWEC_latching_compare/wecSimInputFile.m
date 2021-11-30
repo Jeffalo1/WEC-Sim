@@ -38,13 +38,13 @@ waves.T = 15;                           % Wave Period [s]
 
 %% Body Data
 % Flap
-body(1) = bodyClass('hydroData/oswec.h5');      % Initialize bodyClass for Flap
+body(1) = bodyClass('hydroData/oswec_force.h5');      % Initialize bodyClass for Flap
 body(1).geometryFile = 'geometry/flap.stl';     % Geometry File
 body(1).mass = 127000;                          % User-Defined mass [kg]
 body(1).momOfInertia = [1.85e6 1.85e6 1.85e6];  % Moment of Inertia [kg-m^2]
 
 % Base
-body(2) = bodyClass('hydroData/oswec.h5');      % Initialize bodyClass for Base
+body(2) = bodyClass('hydroData/oswec_force.h5');      % Initialize bodyClass for Base
 body(2).geometryFile = 'geometry/base.stl';     % Geometry File
 body(2).mass = 'fixed';                         % Creates Fixed Body
 

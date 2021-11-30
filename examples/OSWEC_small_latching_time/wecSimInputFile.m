@@ -38,11 +38,11 @@ waves.waveSpread = [0.1,0.2,0.7];       % Wave Directional Spreading [%}
 
 %% Body Data
 % Base
-body(1) = bodyClass('hydroData/oswec.h5');      % Initialize bodyClass for Base
+body(1) = bodyClass('hydroData/oswec_force.h5');      % Initialize bodyClass for Base
 body(1).geometryFile = 'geometry/base.stl';     % Geometry File
 body(1).mass = 'fixed';                         % Creates Fixed Body
 % Flap
-body(2) = bodyClass('hydroData/oswec.h5');      % Initialize bodyClass for Flap
+body(2) = bodyClass('hydroData/oswec_force.h5');      % Initialize bodyClass for Flap
 body(2).geometryFile = 'geometry/flap.stl';     % Geometry File
 body(2).mass = 'equilibrium';                          % User-Defined mass [kg]
 body(2).momOfInertia = [5.3e5 2.27e5 3.14e5];  % Moment of Inertia [kg-m^2]
