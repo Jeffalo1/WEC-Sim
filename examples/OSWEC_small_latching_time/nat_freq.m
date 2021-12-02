@@ -1,4 +1,7 @@
 %Natural Frequency = sqrt(k/m)
 
-wn = sqrt(abs(body(1,1).hydroForce.linearHydroRestCoef(5,5)/(body(1,1).mass+body(1,1).hydroForce.fAddedMass(5,5))));
+k = body(2).hydroForce.linearHydroRestCoef(5,5);
+m = body(2).momOfInertia(2)+body(2).hydroForce.fAddedMass(5,5); % inertia + added inertia
+
+wn = sqrt(abs(k/m));
 T = 2*pi/wn

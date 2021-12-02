@@ -1,4 +1,10 @@
 %Natural Frequency = sqrt(k/m)
+k = body(2).hydroForce.linearHydroRestCoef(5,5);
+m = body(2).momOfInertia(2)+body(2).hydroForce.fAddedMass(5,5); % inertia + added inertia
 
-wn = sqrt(abs(body(1,1).hydroForce.linearHydroRestCoef(5,5)/(body(1,1).mass+body(1,1).hydroForce.fAddedMass(5,5))));
+wn = sqrt(abs(k/m));
 T = 2*pi/wn
+
+% Calculate PTO parameters
+Kp = body(2).hydroForce.fDamping(5,5)
+Ki = -(2*pi/waves.T)^2*(body(2).momOfInertia(2)+body(2).hydroForce.fAddedMass(5,5))+body(2).hydroForce.linearHydroRestCoef(5,5)

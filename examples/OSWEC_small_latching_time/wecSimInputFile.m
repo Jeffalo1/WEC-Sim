@@ -5,7 +5,7 @@ simu.mode = 'normal';                   % Specify Simulation Mode ('normal','acc
 simu.explorer = 'on';                   % Turn SimMechanics Explorer (on/off)
 simu.startTime = 0;                     % Simulation Start Time [s]
 simu.rampTime = 50;                    % Wave Ramp Time [s]
-simu.endTime = 400;                     % Simulation End Time [s]        
+simu.endTime = 1000;                     % Simulation End Time [s]        
 simu.solver = 'ode4';                   % simu.solver = 'ode4' for fixed step & simu.solver = 'ode45' for variable step 
 simu.dt = 0.001;                          % Simulation Time-Step [s]
 simu.CITime = 30;                       % Specify CI Time [s]
