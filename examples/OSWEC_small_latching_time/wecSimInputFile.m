@@ -5,9 +5,9 @@ simu.mode = 'normal';                   % Specify Simulation Mode ('normal','acc
 simu.explorer = 'on';                   % Turn SimMechanics Explorer (on/off)
 simu.startTime = 0;                     % Simulation Start Time [s]
 simu.rampTime = 50;                    % Wave Ramp Time [s]
-simu.endTime = 1000;                     % Simulation End Time [s]        
+simu.endTime = 300;                     % Simulation End Time [s]        
 simu.solver = 'ode4';                   % simu.solver = 'ode4' for fixed step & simu.solver = 'ode45' for variable step 
-simu.dt = 0.001;                          % Simulation Time-Step [s]
+simu.dt = 0.002;                          % Simulation Time-Step [s]
 simu.CITime = 30;                       % Specify CI Time [s]
 
 %% Wave Information
@@ -38,11 +38,11 @@ waves.waveSpread = [0.1,0.2,0.7];       % Wave Directional Spreading [%}
 
 %% Body Data
 % Base
-body(1) = bodyClass('hydroData/oswec_force.h5');      % Initialize bodyClass for Base
+body(1) = bodyClass('hydroData/oswec.h5');      % Initialize bodyClass for Base
 body(1).geometryFile = 'geometry/base.stl';     % Geometry File
 body(1).mass = 'fixed';                         % Creates Fixed Body
 % Flap
-body(2) = bodyClass('hydroData/oswec_force.h5');      % Initialize bodyClass for Flap
+body(2) = bodyClass('hydroData/oswec.h5');      % Initialize bodyClass for Flap
 body(2).geometryFile = 'geometry/flap.stl';     % Geometry File
 body(2).mass = 'equilibrium';                          % User-Defined mass [kg]
 body(2).momOfInertia = [5.3e5 2.27e5 3.14e5];  % Moment of Inertia [kg-m^2]
@@ -55,5 +55,5 @@ constraint(1).loc = [0 0 -6];                  % Constraint Location [m]
 % Rotational PTO
 pto(1) = ptoClass('PTO1');                      % Initialize ptoClass for PTO1
 pto(1).k = 0;                                   % PTO Stiffness Coeff [Nm/rad]
-pto(1).c = 12000;                               % PTO Damping Coeff [Nsm/rad]
+pto(1).c = 2.4486e5;                               % PTO Damping Coeff [Nsm/rad]
 pto(1).loc = [0 0 -5];                        % PTO Location [m]

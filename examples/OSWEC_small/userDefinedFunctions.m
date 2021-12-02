@@ -25,7 +25,7 @@ output.plotForces(2,2)
 pos=output.bodies(2).position(:,5);
 vel=output.bodies(2).velocity(:,5);
 t=output.bodies(2).time;
-i = find(t==150);
+i = find(t==0);
 i2 = find(t==250);
 figure()
 plot(t(i:i2),pos(i:i2))
@@ -41,7 +41,7 @@ title('No Latching Velocity')
 
 
 %% Calculate and Plot Power 
-low = 400; high = 600;
+low = 200; high = 300;
 
 time =  output.ptos.time;
 time2 = output.bodies(2).time;
