@@ -55,5 +55,5 @@ constraint(1).loc = [0 0 -6];                  % Constraint Location [m]
 % Rotational PTO
 pto(1) = ptoClass('PTO1');                      % Initialize ptoClass for PTO1
 pto(1).k = 0;                                   % PTO Stiffness Coeff [Nm/rad]
-pto(1).c = 2.4486e5;                               % PTO Damping Coeff [Nsm/rad]
+pto(1).c = 5e4;                               % PTO Damping Coeff [Nsm/rad]
 pto(1).loc = [0 0 -5];                        % PTO Location [m]

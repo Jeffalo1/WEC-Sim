@@ -20,19 +20,19 @@ output.plotForces(2,2)
 pos=output.bodies(2).position(:,5);
 vel=output.bodies(2).velocity(:,5);
 t=output.bodies(2).time;
-i = find(t==0);
-i2 = find(t==250);
+i = find(t==200);
+i2 = find(t==225);
 figure()
 plot(t(i:i2),pos(i:i2))
 xlabel('Time (s)')
 ylabel('Position (m)')
-title('Latching Position')
+title('Position')
 
 figure()
 plot(t(i:i2),vel(i:i2))
 xlabel('Time (s)')
 ylabel('Velocity (m/s)')
-title('Latching Velocity')
+title('Velocity')
 
 
 %% Calculate and Plot Power 
@@ -50,7 +50,7 @@ time2 = time2(jj:jj2);
 % vel = output.ptos.velocity(ii:end,3);
 % power = force.*vel;
 power = output.ptos.powerInternalMechanics(ii:ii2,5);
-no_latch_power = 3.4808e+04;
+no_latch_power = 1.0923e+04;
 %power_upper = (body.hydroForce.fExt.re(3)).^2/(8*body.hydroForce.fDamping(3,3));
 
 power_average = mean(power)
@@ -66,8 +66,8 @@ yline(no_latch_power,'-b')
 xlim([low high])
 xlabel('Time (s)')
 ylabel('Power (W)')
-title(['body' num2str(1) ' (' output.bodies(2).name ') Power', ' -- Latching Power'])
-legend('power', 'average power','no latching power')
+title(['Power Output'])
+legend('power', 'average power','average power without latching')
 
 percent_greater = power_average/no_latch_power
 
