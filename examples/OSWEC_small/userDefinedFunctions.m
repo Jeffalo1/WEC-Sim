@@ -15,13 +15,15 @@ output.plotResponse(2,5);
 
 % Plot x forces for body 2
 output.plotForces(2,2)
-
+%{
 % Save waves and response as video
-% output.plotWaves(simu,body,waves,...
-%     'timesPerFrame',5,'axisLimits',[-50 50 -50 50 -12 20],...
-%     'startEndTime',[100 125]);
-
+ output.plotWaves(simu,body,waves,...
+    'timesPerFrame',25,'axisLimits',[-50 50 -50 50 -12 20],...
+     'startEndTime',[200 225],'saveSetting',1);
+%}
 %Plot RY response for body 1
+pos_nol=output_nol.bodies(2).position(:,5);
+vel_nol=output_nol.bodies(2).velocity(:,5);
 pos=output.bodies(2).position(:,5);
 vel=output.bodies(2).velocity(:,5);
 t=output.bodies(2).time;
@@ -29,14 +31,21 @@ i = find(t==200);
 i2 = find(t==225);
 figure()
 plot(t(i:i2),pos(i:i2))
+hold on
+plot(t(i:i2),pos_nol(i:i2))
+legend('With Latching','Without Latching')
 xlabel('Time (s)')
-ylabel('Position (m)')
+ylabel('Rotation (rad)')
 title('Position')
+
 
 figure()
 plot(t(i:i2),vel(i:i2))
+hold on
+plot(t(i:i2),vel_nol(i:i2))
+legend('With Latching','Without Latching')
 xlabel('Time (s)')
-ylabel('Velocity (m/s)')
+ylabel('Angular Velocity (rad/s)')
 title('Velocity')
 
 

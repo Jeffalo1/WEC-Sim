@@ -25,13 +25,13 @@ i2 = find(t==225);
 figure()
 plot(t(i:i2),pos(i:i2))
 xlabel('Time (s)')
-ylabel('Position (m)')
+ylabel('Rotation (rad)')
 title('Position')
 
 figure()
 plot(t(i:i2),vel(i:i2))
 xlabel('Time (s)')
-ylabel('Velocity (m/s)')
+ylabel('Angular Velocity (rad/s)')
 title('Velocity')
 
 

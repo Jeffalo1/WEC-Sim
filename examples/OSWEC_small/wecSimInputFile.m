@@ -42,8 +42,8 @@ body(1) = bodyClass('hydroData/oswec.h5');      % Initialize bodyClass for Base
 body(1).geometryFile = 'geometry/oswec_small_base.stl';     % Geometry File
 body(1).mass = 'fixed';                         % Creates Fixed Body
 % Flap
-body(2) = bodyClass('hydroData/oswec.h5');      % Initialize bodyClass for Flap
-body(2).geometryFile = 'geometry/oswec_small_flap.stl';     % Geometry File
+body(2) = bodyClass(['hydroData/oswec.h5']);      % Initialize bodyClass for Flap
+body(2).geometryFile = 'geometry/tritext.stl';     % Geometry File
 body(2).mass = 'equilibrium';                          % User-Defined mass [kg]
 body(2).momOfInertia = [5.3e5 2.27e5 3.14e5];  % Moment of Inertia [kg-m^2]
 
@@ -55,5 +55,5 @@ constraint(1).loc = [0 0 -6];                  % Constraint Location [m]
 % Rotational PTO
 pto(1) = ptoClass('PTO1');                      % Initialize ptoClass for PTO1
 pto(1).k = 0;                                   % PTO Stiffness Coeff [Nm/rad]
-pto(1).c = 5e4;                               % PTO Damping Coeff [Nsm/rad]
+pto(1).c = 2.4486e5;                               % PTO Damping Coeff [Nsm/rad]
 pto(1).loc = [0 0 -5];                        % PTO Location [m]
