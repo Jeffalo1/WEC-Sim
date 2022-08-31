@@ -244,14 +244,15 @@ The full-scale dimensions and mass properties of the OSWEC are shown below.
 +-------+-----------+------------------------+--------------------------------------+
 | Body  | Direction | Center of Gravity* (m) | Moment of Inertia Tensor (kg m^2)    |
 +=======+===========+========================+============+============+============+
-|       |    x      |  0                     | 1,850,000  | 0          | 0          |
+|       |    x      |  0                     | 0          | 0          | 0          |
 |       +-----------+------------------------+------------+------------+------------+
-| Flap  |    y      |  0                     | 0          | 0          | 0          |
+| Flap  |    y      |  0                     | 0          | 1,850,000  | 0          |
 |       +-----------+------------------------+------------+------------+------------+
 |       |    z      | -3.9                   | 0          | 0          | 0          |
 +-------+-----------+------------------------+------------+------------+------------+
 
-**\* The origin lies at the undisturbed free surface**
+.. Note::
+    The global frame lies at the undisturbed free surface. The body-fixed frame is at the center of gravity. Since the OSWEC is modeled as a pitch device, only the Iyy Moment of Inertia has been defined. 
 
 .. _user-tutorials-oswec-model-files:
 
@@ -390,7 +391,7 @@ provided includes examples of how to run different wave cases:
 * ``irregular`` - irregular waves using a Pierson-Moskowitz spectrum with convolution integral calculation
 * ``irregular`` - irregular waves using a Bretschneider Spectrum with state space calculation
 * ``spectrumImport`` - irregular waves using a user-defined spectrum
-* ``waveImport`` - user-defined time-series
+* ``elevationImport`` - user-defined time-series
 
 
 * Run from MATLAB Command Window (for RM3 and OSWEC examples)

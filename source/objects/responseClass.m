@@ -462,8 +462,12 @@ classdef responseClass<handle
             % Read in data for each body
             for ibod=1:length(obj.bodies)
                 % Read and assign geometry data
+                if isempty(body(ibod).geometry.vertex)
+                    % Import body geometry for linear hydro cases
+                    body(ibod).importBodyGeometry(simu.domainSize);
+                end
                 bodyMesh(ibod).Points = body(ibod).geometry.vertex;
-                bodyMesh(ibod).Conns = body(ibod).geometry.faces;                
+                bodyMesh(ibod).Conns = body(ibod).geometry.face;              
                 % Read changes and assign angles and position changes over time
                 bodyMesh(ibod).deltaPos = [obj.bodies(ibod).position(1:options.timesPerFrame:end,1)-obj.bodies(ibod).position(1,1),... 
                 obj.bodies(ibod).position(1:options.timesPerFrame:end,2)-obj.bodies(ibod).position(1,2),...
@@ -522,7 +526,7 @@ classdef responseClass<handle
                     nLeading = ceil(log10(max(t)));
                     tAnnot = sprintf(['time = %' num2str(nDecimals+nLeading+1) '.' num2str(nDecimals) 'f s'],t(i));
                     % Settings and labels
-                    caxis([min(-waves.amplitude) max(waves.amplitude)])
+                    caxis([min(waves.waveAmpTime(:,2)) max(waves.waveAmpTime(:,2))])
                     colormap winter
                     c = colorbar;
                     ylabel(c, 'Wave Elevation (m)')
